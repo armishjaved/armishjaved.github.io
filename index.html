@@ -189,7 +189,8 @@ header.nav{position:fixed;top:0;left:0;right:0;z-index:100;border-bottom:1px sol
 .building-role{font-family:'JetBrains Mono';font-size:13px;color:var(--muted)}
 .building-name{font-family:'Space Grotesk';font-weight:700;font-size:clamp(26px,4.6vw,38px);letter-spacing:-.02em;margin-bottom:14px;position:relative}
 .building-desc{color:var(--muted);font-size:16.5px;max-width:760px;margin-bottom:18px;position:relative}
-.building .tags{position:relative}
+.building .tags{position:relative;display:flex;flex-wrap:wrap;gap:8px}
+.building .tag{font-family:'JetBrains Mono';font-size:11px;color:var(--faint);border:1px solid var(--line);padding:4px 9px;border-radius:6px}
 @media(max-width:680px){.building{padding:26px 22px}}
 
 /* secondary experience */
@@ -232,7 +233,7 @@ header.nav{position:fixed;top:0;left:0;right:0;z-index:100;border-bottom:1px sol
 .card.linked{cursor:pointer}
 .card.linked .card-link{opacity:.55;transform:none;color:var(--muted)}
 .card.linked:hover .card-link{opacity:1;color:var(--yellow)}
-.card-link{position:absolute;top:24px;right:24px;color:var(--faint);transition:.25s;opacity:0;transform:translate(-4px,4px)}
+.card-link{display:none}
 .card:hover .card-link{opacity:1;transform:translate(0,0);color:var(--purple-soft)}
 .card-link svg{width:18px;height:18px}
 
@@ -339,6 +340,7 @@ footer{border-top:1px solid var(--line);padding:34px 0}
     border-left:1px solid var(--line);transform:translateX(100%);transition:transform .4s var(--ease);z-index:90}
   .nav-links.open{transform:translateX(0)}
   .nav-links a{font-size:20px;font-family:'Space Grotesk'}
+  .nav-links a.nav-cta{border:none;padding:8px 14px !important;background:none;color:var(--muted) !important}
   .burger{display:flex;z-index:95}
   .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .burger.open span:nth-child(2){opacity:0}
@@ -347,6 +349,9 @@ footer{border-top:1px solid var(--line);padding:34px 0}
   .card.span3,.card.span2,.card.span6{grid-column:auto}
   .spotlight{padding:30px 22px}
   .exp-row{flex-direction:column;gap:8px}.exp-row .yr{min-width:0}
+  .contact{padding-bottom:72px}
+  .foot-inner{flex-direction:column;text-align:center;gap:16px}
+  .foot-links{flex-wrap:wrap;justify-content:center;gap:12px 18px}
 }
 
 /* --- small phones / iPhone SE (mobile only) --- */
@@ -460,7 +465,7 @@ footer{border-top:1px solid var(--line);padding:34px 0}
       <a href="#work" class="btn btn-primary">See where I made a dent
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      <a href="/resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Résumé ↗</a>
+      <a href="/resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Résumé</a>
       <a href="#contact" class="btn btn-ghost">Say hi 👋</a>
     </div>
   </div>
@@ -745,9 +750,9 @@ footer{border-top:1px solid var(--line);padding:34px 0}
     <div class="contact-actions">
       <a href="mailto:armish1javed@gmail.com" class="btn btn-primary">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
-        armish1javed@gmail.com
+        Email
       </a>
-      <a href="/resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Résumé ↗</a>
+      <a href="/resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Résumé</a>
       <a href="https://linkedin.com/in/armishjaved" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
       <a href="https://github.com/armishjaved" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
     </div>
