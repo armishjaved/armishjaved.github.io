@@ -202,7 +202,7 @@ header.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:all .4s va
 .exp-row li::before{content:"▹";position:absolute;left:0;color:var(--yellow)}
 
 /* PROJECTS — bento */
-.proj-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;grid-auto-flow:dense}
+.proj-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;grid-auto-flow:row dense}
 .card.span3{grid-column:span 3}
 .card.span2{grid-column:span 2}
 .card.span6{grid-column:span 6;flex-direction:row;align-items:center;gap:28px}
@@ -326,8 +326,8 @@ footer{border-top:1px solid var(--line);padding:34px 0}
 @media(max-width:900px){
   .about-grid{grid-template-columns:1fr}
   .proj-grid{grid-template-columns:1fr 1fr}
-  .card.span3,.card.span2,.card.span6{grid-column:auto}
-  .card.span6{flex-direction:column;align-items:flex-start;gap:18px}
+  .card.span3,.card.span2{grid-column:auto}
+  .card.span6{grid-column:1 / -1;flex-direction:column;align-items:flex-start;gap:18px}
   .card.span6 .card-side{flex-direction:row;align-items:baseline;text-align:left;gap:12px}
   .spot-metrics{grid-template-columns:1fr 1fr}
   .spot-points{grid-template-columns:1fr}
@@ -385,6 +385,7 @@ footer{border-top:1px solid var(--line);padding:34px 0}
       <a href="#about">About</a>
       <a href="#work">Work</a>
       <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
       <a href="#skills">Skills</a>
       <a href="#contact" class="nav-cta">Let's talk</a>
     </nav>
@@ -568,8 +569,8 @@ footer{border-top:1px solid var(--line);padding:34px 0}
 <section class="pad wrap" id="projects">
   <div class="sec-head reveal">
     <span class="sec-tag">// 03 — projects</span>
-    <h2>Things I built for fun (and learning).</h2>
-    <p>From RAG pipelines and ML models to Figma-led frontends and a 4-player card game — a tour of the stuff that kept me up too late. Cards with a <span style="color:var(--yellow)">↗</span> tag are clickable.</p>
+    <h2>Things I built.</h2>
+    <p>Products, tools, and games — a real-time RAG extension, data pipelines, a multiplayer card game, and Figma-led frontends. Cards with a <span style="color:var(--yellow)">↗</span> tag are clickable.</p>
   </div>
   <div class="proj-grid" id="projGrid">
     <article class="card span3 reveal">
@@ -580,12 +581,6 @@ footer{border-top:1px solid var(--line);padding:34px 0}
       <div class="tags"><span class="tag">Flask</span><span class="tag">Llama 3</span><span class="tag">RAG</span><span class="tag">JS</span></div>
     </article>
     <article class="card span3 reveal d1">
-      <div class="card-top"><div class="card-ico">🧪</div><span class="card-badge">where it started</span></div>
-      <h4>Comment Toxicity Classifier</h4>
-      <p>My first-ever ML model — built when ChatGPT barely existed, fully self-taught, equal parts stubbornness and Stack Overflow. Fine-tuned DistilBERT with custom layers to <b>85.5% accuracy</b> in two epochs.</p>
-      <div class="tags"><span class="tag">PyTorch</span><span class="tag">DistilBERT</span><span class="tag">Python</span></div>
-    </article>
-    <article class="card span2 reveal">
       <div class="card-top"><div class="card-ico">📈</div><span class="card-badge">Streaming</span></div>
       <h4>StockStream</h4>
       <p>Real-time stock analytics, firehose-style. Kafka + Spark ingest high-frequency streams into a hybrid InfluxDB/Postgres backend, live on Grafana.</p>
@@ -604,50 +599,37 @@ footer{border-top:1px solid var(--line);padding:34px 0}
       <p>The card game I grew up playing, now online. 4 players, synced game state, live chat — real-time multiplayer that actually feels smooth.</p>
       <div class="tags"><span class="tag">React</span><span class="tag">Socket.IO</span><span class="tag">TS</span><span class="tag gh">↗ GitHub</span></div>
     </article>
-    <article class="card span3 reveal">
-      <div class="card-top"><div class="card-ico">🧠</div><span class="card-badge">Research · Audio ML</span></div>
-      <h4>Anxiety &amp; Depression Detection</h4>
-      <p>A clinical-audio ML pipeline — extracting acoustic features from hospital OPD voice recordings to detect signs of anxiety and depression, turning raw audio into a signal that could support mental-health screening.</p>
-      <div class="tags"><span class="tag">Python</span><span class="tag">Audio ML</span><span class="tag">Signal Processing</span><span class="tag">Healthcare</span></div>
-    </article>
-    <article class="card span3 reveal d1">
-      <div class="card-top"><div class="card-ico">🌾</div><span class="card-badge">Research · CV + Forecasting</span></div>
-      <h4>Crop Disease Detection</h4>
-      <p>Two research angles on one problem: unsupervised binary disease classification from crop imagery, plus an early-warning forecasting model built on farm sensor readings and weather data to flag outbreaks before they spread.</p>
-      <div class="tags"><span class="tag">Python</span><span class="tag">Computer Vision</span><span class="tag">Forecasting</span><span class="tag">Unsupervised ML</span></div>
-    </article>
-    <article class="card span3 reveal">
-      <div class="card-top"><div class="card-ico">🛣️</div><span class="card-badge">Computer Vision</span></div>
-      <h4>Drivable-Area Segmentation &amp; Road Perception</h4>
-      <p>An autonomous-driving perception pipeline over dashcam video — segmenting the drivable road area, running object detection, and projecting a bird's-eye (top-view) map of the road. The full "see the road" stack in one project.</p>
-      <div class="tags"><span class="tag">Python</span><span class="tag">Segmentation</span><span class="tag">Object Detection</span><span class="tag">Bird's-eye View</span></div>
-    </article>
-    <article class="card span3 reveal d1">
-      <div class="card-top"><div class="card-ico">🩺</div><span class="card-badge">Health Data Science</span></div>
-      <h4>PCOS Risk Prediction</h4>
-      <p>End-to-end on a clinical Kaggle dataset — cleaning, visualization, and analysis through to a model predicting PCOS risk from patient features. An under-discussed condition with real long-term health impact.</p>
-      <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">scikit-learn</span><span class="tag">Healthcare</span></div>
-    </article>
     <article class="card span2 reveal">
       <div class="card-top"><div class="card-ico">🧭</div><span class="card-badge">design + frontend</span></div>
       <h4>Raasta — Travel &amp; Booking</h4>
       <p>Owned a feature end-to-end: high-fidelity Figma wireframes → a responsive, <b>mobile-first</b> booking frontend. The part where design taste meets shipped UI.</p>
       <div class="tags"><span class="tag">Figma</span><span class="tag">Django</span><span class="tag">Responsive</span></div>
     </article>
-    <article class="card span2 reveal d1 linked" data-href="https://www.figma.com/proto/KsYQ1KaUyDQxoV1RGxEcHR/Group08-Haq_HCI_project?node-id=151-2750&starting-point-node-id=151%3A2730">
+    <article class="card span3 reveal linked" data-href="https://www.figma.com/proto/KsYQ1KaUyDQxoV1RGxEcHR/Group08-Haq_HCI_project?node-id=151-2750&starting-point-node-id=151%3A2730">
       <div class="card-top"><div class="card-ico">🎨</div><span class="card-badge">design system</span></div>
       <a class="card-link" href="https://www.figma.com/proto/KsYQ1KaUyDQxoV1RGxEcHR/Group08-Haq_HCI_project?node-id=151-2750&starting-point-node-id=151%3A2730" target="_blank" rel="noopener" aria-label="View Figma prototype"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
       <h4>Haq — Social Impact</h4>
       <p>Led the full HCI cycle — user research, personas, and a complete high-fidelity prototype with a <b>design system</b> for visual consistency and accessibility.</p>
       <div class="tags"><span class="tag">React</span><span class="tag">TS</span><span class="tag">HCI</span><span class="tag fig">↗ Figma prototype</span></div>
     </article>
-    <article class="card span2 reveal d2 linked" data-href="https://github.com/armishjaved/San-Francisco-City-Guide">
+    <article class="card span3 reveal d1 linked" data-href="https://github.com/armishjaved/San-Francisco-City-Guide">
       <div class="card-top"><div class="card-ico">🌉</div><span class="card-badge">desktop app</span></div>
       <a class="card-link" href="https://github.com/armishjaved/San-Francisco-City-Guide" target="_blank" rel="noopener" aria-label="View on GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
       <h4>SF City Guide</h4>
       <p>A multithreaded Java + Swing app for exploring San Francisco — attractions, dining, real-time data, and a responsive GUI that doesn't freeze under load.</p>
       <div class="tags"><span class="tag">Java</span><span class="tag">Swing</span><span class="tag">JDBC</span><span class="tag gh">↗ GitHub</span></div>
     </article>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="pad wrap" id="research">
+  <div class="sec-head reveal">
+    <span class="sec-tag">// 04 — research &amp; applied ml</span>
+    <h2>Research &amp; applied ML.</h2>
+    <p>Where I dig into models and data — a peer-reviewed paper, clinical audio, agriculture, autonomous-driving vision, and real-world datasets. Cards with a <span style="color:var(--yellow)">↗</span> tag are clickable.</p>
+  </div>
+  <div class="proj-grid">
     <article class="card span6 reveal linked" data-href="https://dl.acm.org/doi/10.1145/3589334.3645585">
       <div class="card-body">
         <div class="card-top" style="justify-content:flex-start;gap:12px"><div class="card-ico">📑</div><span class="card-badge">Published · The Web Conference '24</span></div>
@@ -661,13 +643,62 @@ footer{border-top:1px solid var(--line);padding:34px 0}
         <a class="card-link" style="position:static;opacity:.7" href="https://dl.acm.org/doi/10.1145/3589334.3645585" target="_blank" rel="noopener" aria-label="Read paper on ACM Digital Library"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
       </div>
     </article>
+    <article class="card span2 reveal">
+      <div class="card-top"><div class="card-ico">🧪</div><span class="card-badge">where it started</span></div>
+      <h4>Comment Toxicity Classifier</h4>
+      <p>My first-ever ML model — built when ChatGPT barely existed, fully self-taught. Fine-tuned DistilBERT with custom layers to <b>85.5% accuracy</b> in two epochs.</p>
+      <div class="tags"><span class="tag">PyTorch</span><span class="tag">DistilBERT</span><span class="tag">Python</span></div>
+    </article>
+    <article class="card span2 reveal d1">
+      <div class="card-top"><div class="card-ico">🧠</div><span class="card-badge">Audio ML</span></div>
+      <h4>Anxiety &amp; Depression Detection</h4>
+      <p>A clinical-audio pipeline — extracting acoustic features from hospital OPD voice recordings to detect signs of anxiety and depression.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Audio ML</span><span class="tag">Healthcare</span></div>
+    </article>
+    <article class="card span2 reveal d2">
+      <div class="card-top"><div class="card-ico">🌾</div><span class="card-badge">CV + Forecasting</span></div>
+      <h4>Crop Disease Detection</h4>
+      <p>Two angles on one problem: unsupervised disease classification from crop imagery, plus early-warning forecasting on farm sensor + weather data.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Computer Vision</span><span class="tag">Forecasting</span></div>
+    </article>
+    <article class="card span2 reveal">
+      <div class="card-top"><div class="card-ico">🛣️</div><span class="card-badge">Computer Vision</span></div>
+      <h4>Drivable-Area Segmentation</h4>
+      <p>An autonomous-driving perception pipeline over dashcam video — drivable-area segmentation, object detection, and a bird's-eye top-view projection of the road.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Segmentation</span><span class="tag">Object Detection</span></div>
+    </article>
+    <article class="card span2 reveal d1">
+      <div class="card-top"><div class="card-ico">🩺</div><span class="card-badge">Health Data Science</span></div>
+      <h4>PCOS Risk Prediction</h4>
+      <p>End-to-end on a clinical Kaggle dataset — cleaning, visualization, and analysis through to a model predicting PCOS risk from patient features.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">scikit-learn</span></div>
+    </article>
+    <article class="card span2 reveal d2">
+      <div class="card-top"><div class="card-ico">🔤</div><span class="card-badge">NLP · from scratch</span></div>
+      <h4>Transformer LM (from scratch)</h4>
+      <p>Built a Transformer language model from the ground up and trained it on an <em>Emily in Paris</em> script for character-level text generation — attention, the hard way.</p>
+      <div class="tags"><span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">NLP</span></div>
+    </article>
+    <article class="card span6 reveal linked" data-href="https://medium.com/@armish1javed/e-commerce-pakistan-9e52b930bfcb">
+      <div class="card-body">
+        <div class="card-top" style="justify-content:flex-start;gap:12px"><div class="card-ico">🛒</div><span class="card-badge">Data Science · Medium write-up</span></div>
+        <h4>Pakistan's Largest E-Commerce Dataset — EDA</h4>
+        <p>End-to-end exploratory analysis of ~500K real transactions to surface what drives Pakistan's e-commerce market — cleaning, visualization, and ML-based prediction of customer choices, written up on Medium.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">EDA</span><span class="tag gh">↗ Read on Medium</span></div>
+      </div>
+      <div class="card-side">
+        <div class="big-stat">500K+</div>
+        <div class="big-stat-lbl">transactions analyzed</div>
+        <a class="card-link" style="position:static;opacity:.7" href="https://medium.com/@armish1javed/e-commerce-pakistan-9e52b930bfcb" target="_blank" rel="noopener" aria-label="Read on Medium"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+    </article>
   </div>
 </section>
 
 <!-- SKILLS -->
 <section class="pad wrap" id="skills">
   <div class="sec-head reveal">
-    <span class="sec-tag">// 04 — toolkit</span>
+    <span class="sec-tag">// 05 — toolkit</span>
     <h2>The stack I reach for.</h2>
     <p>Comfortable across the stack — but most at home in backend systems and the ML layer above them.</p>
   </div>
@@ -708,7 +739,7 @@ footer{border-top:1px solid var(--line);padding:34px 0}
 <!-- CONTACT -->
 <section class="contact wrap" id="contact">
   <div class="reveal">
-    <span class="sec-tag" style="display:block;margin-bottom:18px">// 05 — say hi</span>
+    <span class="sec-tag" style="display:block;margin-bottom:18px">// 06 — say hi</span>
     <h2>Let's build something<br><span class="grad">worth measuring.</span></h2>
     <p>I'm a <strong style="color:var(--yellow);font-weight:600">new grad</strong> looking for <strong style="color:var(--text);font-weight:600">SWE / MLE</strong> roles. If you've got an interesting problem — or just want to talk shop — my inbox is open.</p>
     <div class="contact-actions">
@@ -768,7 +799,7 @@ const sections=[...document.querySelectorAll('section[id]')];
 const links={};document.querySelectorAll('.nav-links a').forEach(a=>{const h=a.getAttribute('href');if(h&&h.startsWith('#'))links[h.slice(1)]=a});
 
 // build side-dot index
-const secNames={top:'Home',about:'About',work:'Work',projects:'Projects',skills:'Skills',contact:'Contact'};
+const secNames={top:'Home',about:'About',work:'Work',projects:'Projects',research:'Research',skills:'Skills',contact:'Contact'};
 const dotWrap=document.createElement('nav');dotWrap.className='side-dots';dotWrap.setAttribute('aria-label','Section navigation');
 const dots={};
 sections.forEach(s=>{const a=document.createElement('a');a.href='#'+s.id;
